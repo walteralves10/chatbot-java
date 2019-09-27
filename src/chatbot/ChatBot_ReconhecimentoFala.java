@@ -86,10 +86,7 @@ public class ChatBot_ReconhecimentoFala extends RecFalaPtBrGoogle {
             
             @Override
             public void onResponse(GoogleResponse paramGoogleResponse) {
-                 throw new UnsupportedOperationException("response__ " + paramGoogleResponse);// <editor-fold defaultstate="collapsed" desc="Compiled Code">
-                /* 0: return
-                 *  */
-                // </editor-fold>
+                 throw new UnsupportedOperationException("response__ " + paramGoogleResponse);
             }
         };
 
