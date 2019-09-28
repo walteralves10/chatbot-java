@@ -9,6 +9,8 @@ import java.io.InputStream;
 
 import com.darkprograms.speech.recognizer.GoogleResponse;
 import com.darkprograms.speech.synthesiser.SynthesiserV2;
+import java.util.Timer;
+import java.util.TimerTask;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -22,23 +24,50 @@ import javazoom.jl.player.Player;
  */
 
 public class ChatBot_ReconhecimentoFala extends RecFalaPtBrGoogle {
+    public static boolean perguntou = false;
+    public static ChatBot_ReconhecimentoFala chatBot;
 
     public static void main(String[] args) {
         
-        // Para ativar o debug da fala..
-        boolean _debugEnabled = true;
-
+        
+       
         ChatBot_ReconhecimentoFala chatBot = new ChatBot_ReconhecimentoFala() {
+            String controller = "";
+            
             @Override
             public void resultado(String result) {
-                if(_debugEnabled)
-                    System.out.println("__[debug] Texto falado : " + result);
                 
                 
-                switch(result.toLowerCase()) {
+                    TimerTask task = new TimerTask() {
+                    public void run() {
+                        perguntou = false;
+                        System.out.println(perguntou);
+                        
+                        iniciar();
+                     
+                       }
+                    };
+                    Timer timer = new Timer("Timer");
+                    long delay  = 2000L;            
+
+
+                
+                
+                if(!perguntou)
+                {
+                    switch(result.toLowerCase()) {
+                    
                     case "oi": {
                     try {
                         responder("Olá, tudo bem com você?");
+                        result = null;
+                        perguntou = true;
+                        parar();
+                        timer.schedule(task, delay);
+                        
+                        
+                       
+                        break;
                     } catch (JavaLayerException ex) {
                         Logger.getLogger(ChatBot_ReconhecimentoFala.class.getName()).log(Level.SEVERE, null, ex);
                     }
@@ -48,6 +77,12 @@ public class ChatBot_ReconhecimentoFala extends RecFalaPtBrGoogle {
                     case "bem e você": {
                     try {
                         responder("Ótimo, também estou bem, obrigado por perguntar!");
+                        result = null;
+                        
+                        perguntou = true;
+                        parar();
+                        timer.schedule(task, delay);
+                        break;
                     } catch (JavaLayerException ex) {
                         Logger.getLogger(ChatBot_ReconhecimentoFala.class.getName()).log(Level.SEVERE, null, ex);
                     }
@@ -57,6 +92,12 @@ public class ChatBot_ReconhecimentoFala extends RecFalaPtBrGoogle {
                     case "nome": {
                     try {
                         responder("Olá, eu sou um NPC e me chamo adejajohnson!");
+                        result = null;
+                        
+                        perguntou = true;
+                        parar();
+                        timer.schedule(task, delay);
+                        break;
                     } catch (JavaLayerException ex) {
                         Logger.getLogger(ChatBot_ReconhecimentoFala.class.getName()).log(Level.SEVERE, null, ex);
                     }
@@ -66,22 +107,24 @@ public class ChatBot_ReconhecimentoFala extends RecFalaPtBrGoogle {
                     case "parar": {
                     try {
                         responder("Foi ótimo conversar com você, até a próxima!");
+                        result = null;
+                        
+                        perguntou = true;
+                        parar();
+                        timer.schedule(task, delay);
+                        break;
                     } catch (JavaLayerException ex) {
                         Logger.getLogger(ChatBot_ReconhecimentoFala.class.getName()).log(Level.SEVERE, null, ex);
                     }
-                        // Encerrar as atividades com o bot!
-                        this.parar();
-                    }
-                    
-                    default: {
-                    try {
-                        responder("Desculpa, não entendi");
-                    } catch (JavaLayerException ex) {
-                        Logger.getLogger(ChatBot_ReconhecimentoFala.class.getName()).log(Level.SEVERE, null, ex);
-                    }
+
+                        
                         break;
                     }
+                    
                 }
+                }
+                
+               
             }
             
             @Override
@@ -105,7 +148,7 @@ public class ChatBot_ReconhecimentoFala extends RecFalaPtBrGoogle {
             InputStream audio = synthesiserV2.getMP3Data(text);
             // converte este texto para um arquivo .mp3, na pasta raiz
             String soundFile = "./adejair_load_sound.mp3";
-            FileOutputStream outStream=new FileOutputStream(soundFile);
+            FileOutputStream outStream= new FileOutputStream(soundFile);
 
             int read=0;
             byte []bytes = new byte[8192];
