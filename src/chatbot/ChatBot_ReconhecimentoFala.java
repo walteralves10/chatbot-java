@@ -111,7 +111,7 @@ public class ChatBot_ReconhecimentoFala extends RecFalaPtBrGoogle {
                         
                         perguntou = true;
                         parar();
-                        timer.schedule(task, delay);
+                        //timer.schedule(task, delay);
                         break;
                     } catch (JavaLayerException ex) {
                         Logger.getLogger(ChatBot_ReconhecimentoFala.class.getName()).log(Level.SEVERE, null, ex);
