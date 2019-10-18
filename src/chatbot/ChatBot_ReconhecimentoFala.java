@@ -31,7 +31,7 @@ public class ChatBot_ReconhecimentoFala extends RecFalaPtBrGoogle {
         
         
        
-        ChatBot_ReconhecimentoFala chatBot = new ChatBot_ReconhecimentoFala() {
+        /*ChatBot_ReconhecimentoFala*/ chatBot = new ChatBot_ReconhecimentoFala() {
             String controller = "";
             
             @Override
