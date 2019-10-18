@@ -57,7 +57,7 @@ public class ChatBot_ReconhecimentoFala extends RecFalaPtBrGoogle {
                 {
                     switch(result.toLowerCase()) {
                     
-                    case "oi": {
+                    case ("oi"): {
                     try {
                         responder("Olá, tudo bem com você?");
                         result = null;
