@@ -5,6 +5,7 @@
  */
 package view;
 
+import chatbot.ServerBotSounds;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.plaf.LabelUI;
@@ -17,7 +18,7 @@ import javax.swing.SwingConstants;
 public class ChatScreen extends javax.swing.JFrame {
 
     private static final String IMAGENS_MEUNOT = "/home/rezende/Documentos/faculdade/10 periodo/SISTEMA DISTRIBUIDO/Projeto SOAP/clienteProdutos/src/IMAGENS/pacote.png";
-    private static final String IMAGENS_TRABALHO = "E:\\0 - walter\\faculdade\\SISTEMA DISTRIBUIDO\\clienteProdutos\\src\\IMAGENS\\";
+    private static final String IMAGENS_TRABALHO = "C:\\Users\\walte\\OneDrive\\Documentos\\NetBeansProjects\\chatbot-java\\src\\imagens\\";
     private static final String IMAGENS_CASA = "C:\\Users\\walte\\OneDrive\\Documentos\\NetBeansProjects\\NPC-Sintetizer-Java\\src\\imagens\\";
 
     /**
@@ -48,10 +49,12 @@ public class ChatScreen extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         linguagem = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
+        iniciar = new javax.swing.JButton();
+        jLabel6 = new javax.swing.JLabel();
+        labelMicrophone = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("CHATBOT VOICE");
-        setPreferredSize(new java.awt.Dimension(900, 600));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -68,7 +71,7 @@ public class ChatScreen extends javax.swing.JFrame {
         jLabel2.setText("Sou treinado para responder perguntas");
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel4.setText("frequentes sobre nosso sistema de emissão de");
+        jLabel4.setText("frequentes sobre erros ao gerar emissão de");
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel5.setText("notas fiscais em geral. Fique a vontade!");
@@ -128,15 +131,42 @@ public class ChatScreen extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(204, 255, 204));
 
+        iniciar.setBackground(new java.awt.Color(255, 102, 0));
+        iniciar.setText("INICIAR");
+        iniciar.setBorder(null);
+        iniciar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                iniciarActionPerformed(evt);
+            }
+        });
+
+        jLabel6.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabel6.setText("Estou escutando ...");
+
+        labelMicrophone.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 564, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addGap(25, 25, 25)
+                .addComponent(jLabel6)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 301, Short.MAX_VALUE)
+                .addComponent(labelMicrophone, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(iniciar, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(labelMicrophone, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)
+                    .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(iniciar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -156,6 +186,11 @@ public class ChatScreen extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void iniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_iniciarActionPerformed
+        iniciar.setEnabled(false);
+        ServerBotSounds.serverSounds();
+    }//GEN-LAST:event_iniciarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -194,24 +229,31 @@ public class ChatScreen extends javax.swing.JFrame {
     }
 
     private void carregaImagem() {
-        String load = IMAGENS_CASA + "mulher.png";
+        String load = IMAGENS_TRABALHO + "mulher.png";
         Icon mulher = new ImageIcon(load);
         labelIMG.setIcon(mulher);
         
-        load = IMAGENS_CASA + "verde.png";
+        load = IMAGENS_TRABALHO + "verde.png";
         Icon status = new ImageIcon(load);
         labelStatus.setIcon(status);
+        
+        load = IMAGENS_TRABALHO + "microphone.png";
+        Icon microphone = new ImageIcon(load);
+        labelMicrophone.setIcon(microphone);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton iniciar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel labelIMG;
+    private javax.swing.JLabel labelMicrophone;
     private javax.swing.JLabel labelStatus;
     private javax.swing.JTextField linguagem;
     // End of variables declaration//GEN-END:variables
