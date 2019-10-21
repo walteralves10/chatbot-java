@@ -16,16 +16,18 @@ import java.util.logging.Logger;
 
 import javazoom.jl.decoder.JavaLayerException;
 import javazoom.jl.player.Player;
+import view.ChatScreen;
 
 /**
  * Arquivo do reconhecimento de fala.
  *
  * @author Adejair Júnior
  *
- * case : { try { responder(); result = null; perguntou = true; parar();
+ * case : { try { ChatScreen.textVoice.append("-> "+ResponseBotSounds.+"\n");
+ * responder(ResponseBotSounds.); result = null; perguntou = true; parar();
  * timer.schedule(task, delay); } catch (JavaLayerException ex) {
- * Logger.getLogger(ServerBotSounds.class.getName()).log(Level.SEVERE, null,
- * ex); } break; }
+ * Logger.getLogger(ServerBotSounds.class.getName()).log(Level.SEVERE, null,ex);
+ * } * //break; }
  */
 public class ServerBotSounds extends RecFalaPtBrGoogle {
 
@@ -54,57 +56,12 @@ public class ServerBotSounds extends RecFalaPtBrGoogle {
                 long delay = 2000L;
 
                 if (!perguntou) {
-                    switch (result.toLowerCase()) {
+                    //switch () {
 
-//                        case ("oi"): {
-//                            try {
-//                                responder(ResponseBotSounds.OI);
-//                                result = null;
-//                                perguntou = true;
-//                                parar();
-//                                timer.schedule(task, delay);
-//
-//                                break;
-//                            } catch (JavaLayerException ex) {
-//                                Logger.getLogger(ServerBotSounds.class.getName()).log(Level.SEVERE, null, ex);
-//                            }
-//                            break;
-//                        }
-//
-//                        case "bem e você": {
-//                            try {
-//                                responder("Ótimo, também estou bem, obrigado por perguntar!");
-//                                result = null;
-//
-//                                perguntou = true;
-//                                parar();
-//                                timer.schedule(task, delay);
-//                                break;
-//                            } catch (JavaLayerException ex) {
-//                                Logger.getLogger(ServerBotSounds.class.getName()).log(Level.SEVERE, null, ex);
-//                            }
-//                            break;
-//                        }
-//                        
-//
-//
-//                        case "nome": {
-//                            try {
-//                                responder("Olá, eu sou um NPC e me chamo adejajohnson!");
-//                                result = null;
-//
-//                                perguntou = true;
-//                                parar();
-//                                timer.schedule(task, delay);
-//                                break;
-//                            } catch (JavaLayerException ex) {
-//                                Logger.getLogger(ServerBotSounds.class.getName()).log(Level.SEVERE, null, ex);
-//                            }
-//                            break;
-//                        }
-//
-                        case PhrasesPLN.INPUTTIMEOUTREQUEST: {
+                        if((result+"").toLowerCase().contains(PhrasesPLN.INPUTTIMEOUTREQUEST))  {
                             try {
+                                ChatScreen.textVoice.append("-> " + ResponseBotSounds.OUTPUTTIMEOUTREQUEST + "\n");
+
                                 responder(ResponseBotSounds.OUTPUTTIMEOUTREQUEST);
                                 result = null;
                                 perguntou = true;
@@ -113,10 +70,69 @@ public class ServerBotSounds extends RecFalaPtBrGoogle {
                             } catch (JavaLayerException ex) {
                                 Logger.getLogger(ServerBotSounds.class.getName()).log(Level.SEVERE, null, ex);
                             }
-                            break;
+                            ////break;
                         }
-                        case PhrasesPLN.INPUTDELEGATE: {
+                        if((result+"").toLowerCase().contains(PhrasesPLN.INPUTTIMEOUTREQUEST2)) {
                             try {
+                                ChatScreen.textVoice.append("-> " + ResponseBotSounds.OUTPUTTIMEOUTREQUEST + "\n");
+
+                                responder(ResponseBotSounds.OUTPUTTIMEOUTREQUEST);
+                                result = null;
+                                perguntou = true;
+                                parar();
+                                timer.schedule(task, delay);
+                            } catch (JavaLayerException ex) {
+                                Logger.getLogger(ServerBotSounds.class.getName()).log(Level.SEVERE, null, ex);
+                            }
+                            //break;
+                        }
+                        if((result+"").toLowerCase().contains(PhrasesPLN.INPUTTIMEOUTREQUEST3)) {
+                            try {
+                                ChatScreen.textVoice.append("-> " + ResponseBotSounds.OUTPUTTIMEOUTREQUEST + "\n");
+
+                                responder(ResponseBotSounds.OUTPUTTIMEOUTREQUEST);
+                                result = null;
+                                perguntou = true;
+                                parar();
+                                timer.schedule(task, delay);
+                            } catch (JavaLayerException ex) {
+                                Logger.getLogger(ServerBotSounds.class.getName()).log(Level.SEVERE, null, ex);
+                            }
+                            //break;
+                        }
+                        if((result+"").toLowerCase().contains(PhrasesPLN.INPUTTIMEOUTREQUEST4)){
+                            try {
+                                ChatScreen.textVoice.append("-> " + ResponseBotSounds.OUTPUTTIMEOUTREQUEST + "\n");
+
+                                responder(ResponseBotSounds.OUTPUTTIMEOUTREQUEST);
+                                result = null;
+                                perguntou = true;
+                                parar();
+                                timer.schedule(task, delay);
+                            } catch (JavaLayerException ex) {
+                                Logger.getLogger(ServerBotSounds.class.getName()).log(Level.SEVERE, null, ex);
+                            }
+                            //break;
+                        }//(result+"").toLowerCase().contains())
+                        if((result+"").toLowerCase().contains(PhrasesPLN.INPUTTIMEOUTREQUEST5)){
+                            try {
+                                ChatScreen.textVoice.append("-> " + ResponseBotSounds.OUTPUTTIMEOUTREQUEST + "\n");
+
+                                responder(ResponseBotSounds.OUTPUTTIMEOUTREQUEST);
+                                result = null;
+                                perguntou = true;
+                                parar();
+                                timer.schedule(task, delay);
+                            } catch (JavaLayerException ex) {
+                                Logger.getLogger(ServerBotSounds.class.getName()).log(Level.SEVERE, null, ex);
+                            }
+                            //break;
+                        }
+                        
+                        //
+                        if ((result+"").toLowerCase().contains(PhrasesPLN.INPUTDELEGATE)) {
+                            try {
+                                ChatScreen.textVoice.append("-> " + ResponseBotSounds.OUTPUTDELEGATE + "\n");
                                 responder(ResponseBotSounds.OUTPUTDELEGATE);
                                 result = null;
                                 perguntou = true;
@@ -125,10 +141,65 @@ public class ServerBotSounds extends RecFalaPtBrGoogle {
                             } catch (JavaLayerException ex) {
                                 Logger.getLogger(ServerBotSounds.class.getName()).log(Level.SEVERE, null, ex);
                             }
-                            break;
+                            //break;
                         }
-                        case PhrasesPLN.INPUTDIGITALCERTIFICATE: {
+                        if ((result+"").toLowerCase().contains(PhrasesPLN.INPUTDELEGATE2)) {
                             try {
+                                ChatScreen.textVoice.append("-> " + ResponseBotSounds.OUTPUTDELEGATE + "\n");
+                                responder(ResponseBotSounds.OUTPUTDELEGATE);
+                                result = null;
+                                perguntou = true;
+                                parar();
+                                timer.schedule(task, delay);
+                            } catch (JavaLayerException ex) {
+                                Logger.getLogger(ServerBotSounds.class.getName()).log(Level.SEVERE, null, ex);
+                            }
+                            //break;
+                        }
+                        if ((result+"").toLowerCase().contains(PhrasesPLN.INPUTDELEGATE3)) {
+                            try {
+                                ChatScreen.textVoice.append("-> " + ResponseBotSounds.OUTPUTDELEGATE + "\n");
+                                responder(ResponseBotSounds.OUTPUTDELEGATE);
+                                result = null;
+                                perguntou = true;
+                                parar();
+                                timer.schedule(task, delay);
+                            } catch (JavaLayerException ex) {
+                                Logger.getLogger(ServerBotSounds.class.getName()).log(Level.SEVERE, null, ex);
+                            }
+                            //break;
+                        }
+                        if ((result+"").toLowerCase().contains(PhrasesPLN.INPUTDELEGATE4)) {
+                            try {
+                                ChatScreen.textVoice.append("-> " + ResponseBotSounds.OUTPUTDELEGATE + "\n");
+                                responder(ResponseBotSounds.OUTPUTDELEGATE);
+                                result = null;
+                                perguntou = true;
+                                parar();
+                                timer.schedule(task, delay);
+                            } catch (JavaLayerException ex) {
+                                Logger.getLogger(ServerBotSounds.class.getName()).log(Level.SEVERE, null, ex);
+                            }
+                            //break;
+                        }
+                       if ((result+"").toLowerCase().contains(PhrasesPLN.INPUTDELEGATE5)) {
+                            try {
+                                ChatScreen.textVoice.append("-> " + ResponseBotSounds.OUTPUTDELEGATE + "\n");
+                                responder(ResponseBotSounds.OUTPUTDELEGATE);
+                                result = null;
+                                perguntou = true;
+                                parar();
+                                timer.schedule(task, delay);
+                            } catch (JavaLayerException ex) {
+                                Logger.getLogger(ServerBotSounds.class.getName()).log(Level.SEVERE, null, ex);
+                            }
+                            //break;
+                        }
+                        
+                        //if ((result+"").toLowerCase().contains(PhrasesPLN.INPUTDIGITALCERTIFICATE))
+                        if ((result+"").toLowerCase().contains(PhrasesPLN.INPUTDIGITALCERTIFICATE)){
+                            try {
+                                ChatScreen.textVoice.append("-> " + ResponseBotSounds.OUTPUTDIGITALCERTIFICATE + "\n");
                                 responder(ResponseBotSounds.OUTPUTDIGITALCERTIFICATE);
                                 result = null;
                                 perguntou = true;
@@ -137,10 +208,65 @@ public class ServerBotSounds extends RecFalaPtBrGoogle {
                             } catch (JavaLayerException ex) {
                                 Logger.getLogger(ServerBotSounds.class.getName()).log(Level.SEVERE, null, ex);
                             }
-                            break;
+                            //break;
                         }
-                        case PhrasesPLN.INPUTSUMPRODUCT: {
+                        if ((result+"").toLowerCase().contains(PhrasesPLN.INPUTDIGITALCERTIFICATE2)) {
                             try {
+                                ChatScreen.textVoice.append("-> " + ResponseBotSounds.OUTPUTDIGITALCERTIFICATE + "\n");
+                                responder(ResponseBotSounds.OUTPUTDIGITALCERTIFICATE);
+                                result = null;
+                                perguntou = true;
+                                parar();
+                                timer.schedule(task, delay);
+                            } catch (JavaLayerException ex) {
+                                Logger.getLogger(ServerBotSounds.class.getName()).log(Level.SEVERE, null, ex);
+                            }
+                            //break;
+                        }
+                        if ((result+"").toLowerCase().contains(PhrasesPLN.INPUTDIGITALCERTIFICATE3)) {
+                            try {
+                                ChatScreen.textVoice.append("-> " + ResponseBotSounds.OUTPUTDIGITALCERTIFICATE + "\n");
+                                responder(ResponseBotSounds.OUTPUTDIGITALCERTIFICATE);
+                                result = null;
+                                perguntou = true;
+                                parar();
+                                timer.schedule(task, delay);
+                            } catch (JavaLayerException ex) {
+                                Logger.getLogger(ServerBotSounds.class.getName()).log(Level.SEVERE, null, ex);
+                            }
+                            //break;
+                        }
+                        if ((result+"").toLowerCase().contains(PhrasesPLN.INPUTDIGITALCERTIFICATE4)) {
+                            try {
+                                ChatScreen.textVoice.append("-> " + ResponseBotSounds.OUTPUTDIGITALCERTIFICATE + "\n");
+                                responder(ResponseBotSounds.OUTPUTDIGITALCERTIFICATE);
+                                result = null;
+                                perguntou = true;
+                                parar();
+                                timer.schedule(task, delay);
+                            } catch (JavaLayerException ex) {
+                                Logger.getLogger(ServerBotSounds.class.getName()).log(Level.SEVERE, null, ex);
+                            }
+                            //break;
+                        }
+                        if ((result+"").toLowerCase().contains(PhrasesPLN.INPUTDIGITALCERTIFICATE5)) {
+                            try {
+                                ChatScreen.textVoice.append("-> " + ResponseBotSounds.OUTPUTDIGITALCERTIFICATE + "\n");
+                                responder(ResponseBotSounds.OUTPUTDIGITALCERTIFICATE);
+                                result = null;
+                                perguntou = true;
+                                parar();
+                                timer.schedule(task, delay);
+                            } catch (JavaLayerException ex) {
+                                Logger.getLogger(ServerBotSounds.class.getName()).log(Level.SEVERE, null, ex);
+                            }
+                            //break;
+                        }
+                        
+                        //if ((result+"").toLowerCase().contains(PhrasesPLN.INPUTSUMPRODUCT))
+                         if ((result+"").toLowerCase().contains(PhrasesPLN.INPUTSUMPRODUCT)) {
+                            try {
+                                ChatScreen.textVoice.append("-> " + ResponseBotSounds.OUTPUTSUMPRODUCT + "\n");
                                 responder(ResponseBotSounds.OUTPUTSUMPRODUCT);
                                 result = null;
                                 perguntou = true;
@@ -149,9 +275,279 @@ public class ServerBotSounds extends RecFalaPtBrGoogle {
                             } catch (JavaLayerException ex) {
                                 Logger.getLogger(ServerBotSounds.class.getName()).log(Level.SEVERE, null, ex);
                             }
-                            break;
+                            //break;
                         }
-                        case "parar": {
+                        if ((result+"").toLowerCase().contains(PhrasesPLN.INPUTSUMPRODUCT2)) {
+                            try {
+                                ChatScreen.textVoice.append("-> " + ResponseBotSounds.OUTPUTSUMPRODUCT + "\n");
+                                responder(ResponseBotSounds.OUTPUTSUMPRODUCT);
+                                result = null;
+                                perguntou = true;
+                                parar();
+                                timer.schedule(task, delay);
+                            } catch (JavaLayerException ex) {
+                                Logger.getLogger(ServerBotSounds.class.getName()).log(Level.SEVERE, null, ex);
+                            }
+                            //break;
+                        }
+                        if ((result+"").toLowerCase().contains(PhrasesPLN.INPUTSUMPRODUCT3)) {
+                            try {
+                                ChatScreen.textVoice.append("-> " + ResponseBotSounds.OUTPUTSUMPRODUCT + "\n");
+                                responder(ResponseBotSounds.OUTPUTSUMPRODUCT);
+                                result = null;
+                                perguntou = true;
+                                parar();
+                                timer.schedule(task, delay);
+                            } catch (JavaLayerException ex) {
+                                Logger.getLogger(ServerBotSounds.class.getName()).log(Level.SEVERE, null, ex);
+                            }
+                            //break;
+                        }
+                        if ((result+"").toLowerCase().contains(PhrasesPLN.INPUTSUMPRODUCT4)) {
+                            try {
+                                ChatScreen.textVoice.append("-> " + ResponseBotSounds.OUTPUTSUMPRODUCT + "\n");
+                                responder(ResponseBotSounds.OUTPUTSUMPRODUCT);
+                                result = null;
+                                perguntou = true;
+                                parar();
+                                timer.schedule(task, delay);
+                            } catch (JavaLayerException ex) {
+                                Logger.getLogger(ServerBotSounds.class.getName()).log(Level.SEVERE, null, ex);
+                            }
+                            //break;
+                        }
+                        if ((result+"").toLowerCase().contains(PhrasesPLN.INPUTSUMPRODUCT5)) {
+                            try {
+                                ChatScreen.textVoice.append("-> " + ResponseBotSounds.OUTPUTSUMPRODUCT + "\n");
+                                responder(ResponseBotSounds.OUTPUTSUMPRODUCT);
+                                result = null;
+                                perguntou = true;
+                                parar();
+                                timer.schedule(task, delay);
+                            } catch (JavaLayerException ex) {
+                                Logger.getLogger(ServerBotSounds.class.getName()).log(Level.SEVERE, null, ex);
+                            }
+                            //break;
+                        }
+                        
+                        //if ((result+"").toLowerCase().contains(PhrasesPLN.INPUTINSCESTADUAL))
+                        if ((result+"").toLowerCase().contains(PhrasesPLN.INPUTINSCESTADUAL)) {
+                            try {
+                                ChatScreen.textVoice.append("-> " + ResponseBotSounds.OUTPUTINSCESTADUAL + "\n");
+                                responder(ResponseBotSounds.OUTPUTINSCESTADUAL);
+                                result = null;
+                                perguntou = true;
+                                parar();
+                                timer.schedule(task, delay);
+                            } catch (JavaLayerException ex) {
+                                Logger.getLogger(ServerBotSounds.class.getName()).log(Level.SEVERE, null, ex);
+                            }
+
+                            //break;
+                        }
+                        if ((result+"").toLowerCase().contains(PhrasesPLN.INPUTINSCESTADUAL2)) {
+                            try {
+                                ChatScreen.textVoice.append("-> " + ResponseBotSounds.OUTPUTINSCESTADUAL + "\n");
+                                responder(ResponseBotSounds.OUTPUTINSCESTADUAL);
+                                result = null;
+                                perguntou = true;
+                                parar();
+                                timer.schedule(task, delay);
+                            } catch (JavaLayerException ex) {
+                                Logger.getLogger(ServerBotSounds.class.getName()).log(Level.SEVERE, null, ex);
+                            }
+
+                            //break;
+                        }
+                        if ((result+"").toLowerCase().contains(PhrasesPLN.INPUTINSCESTADUAL3)) {
+                            try {
+                                ChatScreen.textVoice.append("-> " + ResponseBotSounds.OUTPUTINSCESTADUAL + "\n");
+                                responder(ResponseBotSounds.OUTPUTINSCESTADUAL);
+                                result = null;
+                                perguntou = true;
+                                parar();
+                                timer.schedule(task, delay);
+                            } catch (JavaLayerException ex) {
+                                Logger.getLogger(ServerBotSounds.class.getName()).log(Level.SEVERE, null, ex);
+                            }
+
+                            //break;
+                        }
+                        if ((result+"").toLowerCase().contains(PhrasesPLN.INPUTINSCESTADUAL4)) {
+                            try {
+                                ChatScreen.textVoice.append("-> " + ResponseBotSounds.OUTPUTINSCESTADUAL + "\n");
+                                responder(ResponseBotSounds.OUTPUTINSCESTADUAL);
+                                result = null;
+                                perguntou = true;
+                                parar();
+                                timer.schedule(task, delay);
+                            } catch (JavaLayerException ex) {
+                                Logger.getLogger(ServerBotSounds.class.getName()).log(Level.SEVERE, null, ex);
+                            }
+
+                            //break;
+                        }
+                        if ((result+"").toLowerCase().contains(PhrasesPLN.INPUTINSCESTADUAL5)) {
+                            try {
+                                ChatScreen.textVoice.append("-> " + ResponseBotSounds.OUTPUTINSCESTADUAL + "\n");
+                                responder(ResponseBotSounds.OUTPUTINSCESTADUAL);
+                                result = null;
+                                perguntou = true;
+                                parar();
+                                timer.schedule(task, delay);
+                            } catch (JavaLayerException ex) {
+                                Logger.getLogger(ServerBotSounds.class.getName()).log(Level.SEVERE, null, ex);
+                            }
+
+                            //break;
+                        }
+                        
+                        //if ((result+"").toLowerCase().contains(PhrasesPLN.INPUTCFOP))
+                        if ((result+"").toLowerCase().contains(PhrasesPLN.INPUTCFOP)) {
+                            try {
+                                ChatScreen.textVoice.append("-> " + ResponseBotSounds.OUTPUTCFOP + "\n");
+                                responder(ResponseBotSounds.OUTPUTCFOP);
+                                result = null;
+                                perguntou = true;
+                                parar();
+                                timer.schedule(task, delay);
+                            } catch (JavaLayerException ex) {
+                                Logger.getLogger(ServerBotSounds.class.getName()).log(Level.SEVERE, null, ex);
+                            }
+
+                            //break;
+                        }
+                        if ((result+"").toLowerCase().contains(PhrasesPLN.INPUTCFOP2)) {
+                            try {
+                                ChatScreen.textVoice.append("-> " + ResponseBotSounds.OUTPUTCFOP + "\n");
+                                responder(ResponseBotSounds.OUTPUTCFOP);
+                                result = null;
+                                perguntou = true;
+                                parar();
+                                timer.schedule(task, delay);
+                            } catch (JavaLayerException ex) {
+                                Logger.getLogger(ServerBotSounds.class.getName()).log(Level.SEVERE, null, ex);
+                            }
+
+                            //break;
+                        }
+                        if ((result+"").toLowerCase().contains(PhrasesPLN.INPUTCFOP3)) {
+                            try {
+                                ChatScreen.textVoice.append("-> " + ResponseBotSounds.OUTPUTCFOP + "\n");
+                                responder(ResponseBotSounds.OUTPUTCFOP);
+                                result = null;
+                                perguntou = true;
+                                parar();
+                                timer.schedule(task, delay);
+                            } catch (JavaLayerException ex) {
+                                Logger.getLogger(ServerBotSounds.class.getName()).log(Level.SEVERE, null, ex);
+                            }
+
+                            //break;
+                        }
+                        if ((result+"").toLowerCase().contains(PhrasesPLN.INPUTCFOP4)) {
+                            try {
+                                ChatScreen.textVoice.append("-> " + ResponseBotSounds.OUTPUTCFOP + "\n");
+                                responder(ResponseBotSounds.OUTPUTCFOP);
+                                result = null;
+                                perguntou = true;
+                                parar();
+                                timer.schedule(task, delay);
+                            } catch (JavaLayerException ex) {
+                                Logger.getLogger(ServerBotSounds.class.getName()).log(Level.SEVERE, null, ex);
+                            }
+
+                            //break;
+                        }
+                        if ((result+"").toLowerCase().contains(PhrasesPLN.INPUTCFOP5)) {
+                            try {
+                                ChatScreen.textVoice.append("-> " + ResponseBotSounds.OUTPUTCFOP + "\n");
+                                responder(ResponseBotSounds.OUTPUTCFOP);
+                                result = null;
+                                perguntou = true;
+                                parar();
+                                timer.schedule(task, delay);
+                            } catch (JavaLayerException ex) {
+                                Logger.getLogger(ServerBotSounds.class.getName()).log(Level.SEVERE, null, ex);
+                            }
+
+                            //break;
+                        }
+                        
+                        //if ((result+"").toLowerCase().contains(PhrasesPLN.INPUTCST))
+                        if ((result+"").toLowerCase().contains(PhrasesPLN.INPUTCST))  {
+                            try {
+                                ChatScreen.textVoice.append("-> " + ResponseBotSounds.OUTPUTCST + "\n");
+                                responder(ResponseBotSounds.OUTPUTCST);
+                                result = null;
+                                perguntou = true;
+                                parar();
+                                timer.schedule(task, delay);
+                            } catch (JavaLayerException ex) {
+                                Logger.getLogger(ServerBotSounds.class.getName()).log(Level.SEVERE, null, ex);
+                            }
+
+                            //break;
+                        }
+                        if ((result+"").toLowerCase().contains(PhrasesPLN.INPUTCST2)) {
+                            try {
+                                ChatScreen.textVoice.append("-> " + ResponseBotSounds.OUTPUTCST + "\n");
+                                responder(ResponseBotSounds.OUTPUTCST);
+                                result = null;
+                                perguntou = true;
+                                parar();
+                                timer.schedule(task, delay);
+                            } catch (JavaLayerException ex) {
+                                Logger.getLogger(ServerBotSounds.class.getName()).log(Level.SEVERE, null, ex);
+                            }
+
+                            //break;
+                        }
+                        if ((result+"").toLowerCase().contains(PhrasesPLN.INPUTCST3)) {
+                            try {
+                                ChatScreen.textVoice.append("-> " + ResponseBotSounds.OUTPUTCST + "\n");
+                                responder(ResponseBotSounds.OUTPUTCST);
+                                result = null;
+                                perguntou = true;
+                                parar();
+                                timer.schedule(task, delay);
+                            } catch (JavaLayerException ex) {
+                                Logger.getLogger(ServerBotSounds.class.getName()).log(Level.SEVERE, null, ex);
+                            }
+
+                            //break;
+                        }
+                        if ((result+"").toLowerCase().contains(PhrasesPLN.INPUTCST4)) {
+                            try {
+                                ChatScreen.textVoice.append("-> " + ResponseBotSounds.OUTPUTCST + "\n");
+                                responder(ResponseBotSounds.OUTPUTCST);
+                                result = null;
+                                perguntou = true;
+                                parar();
+                                timer.schedule(task, delay);
+                            } catch (JavaLayerException ex) {
+                                Logger.getLogger(ServerBotSounds.class.getName()).log(Level.SEVERE, null, ex);
+                            }
+
+                            //break;
+                        }
+                        if ((result+"").toLowerCase().contains(PhrasesPLN.INPUTCST5)) {
+                            try {
+                                ChatScreen.textVoice.append("-> " + ResponseBotSounds.OUTPUTCST + "\n");
+                                responder(ResponseBotSounds.OUTPUTCST);
+                                result = null;
+                                perguntou = true;
+                                parar();
+                                timer.schedule(task, delay);
+                            } catch (JavaLayerException ex) {
+                                Logger.getLogger(ServerBotSounds.class.getName()).log(Level.SEVERE, null, ex);
+                            }
+
+                            //break;
+                        }
+                        
+                        //if ((result+"").toLowerCase().contains("parar"))
+                        if ((result+"").toLowerCase().contains("tchau")){
                             try {
                                 responder("Estou grato por tirar suas duvidas, até a próxima!");
                                 result = null;
@@ -159,15 +555,41 @@ public class ServerBotSounds extends RecFalaPtBrGoogle {
                                 perguntou = true;
                                 parar();
                                 //timer.schedule(task, delay);
-                                break;
+                                //break;
                             } catch (JavaLayerException ex) {
                                 Logger.getLogger(ServerBotSounds.class.getName()).log(Level.SEVERE, null, ex);
                             }
 
-                            break;
+                            //break;
                         }
+                        if ((result+"").toLowerCase().contains("Boa noite")){
+                            try {
+                                responder("Boa noite senhor, sou Delia, no que posso ajudar?");
+                                result = null;
 
-                    }
+                                perguntou = true;
+                                parar();
+                                //timer.schedule(task, delay);
+                                //break;
+                            } catch (JavaLayerException ex) {
+                                Logger.getLogger(ServerBotSounds.class.getName()).log(Level.SEVERE, null, ex);
+                            }
+
+                            //break;
+                        }
+//                        default:{
+//                            try {
+//                                ChatScreen.textVoice.append("-> "+ResponseBotSounds.OUTPUTDEFAULT+"\n");
+//                                responder(ResponseBotSounds.OUTPUTDEFAULT);
+//                                result = null;
+//                                perguntou = true;
+//                                parar();
+//                                timer.schedule(task, delay);
+//                            } catch (JavaLayerException ex) {
+//                                Logger.getLogger(ServerBotSounds.class.getName()).log(Level.SEVERE, null, ex);
+//                            }
+//                            //break;
+//                        }
                 }
 
             }
